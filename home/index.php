@@ -22,14 +22,52 @@ check_verified();
 
         </div>
         <div class="col-sm-9">
+            <form class="form-auth" action="includes/create_cause.php" method="post">
+                <h6 class="h3 mt-3 mb-3 font-weight-normal text-center">Create new Cause!</h6>
+                <small class="text-danger ml-2 font-weight-bold">
+                    <?php
+                    if (isset($_SESSION['ERRORS']['formerror']))
+                        echo $_SESSION['ERRORS']['formerror'];
 
-            <div class="d-flex align-items-center p-3 mt-5 mb-3 text-white-50 bg-purple rounded box-shadow">
-                <img class="mr-3" src="../assets/images/logonotextwhite.png" alt="" width="48" height="48">
-                <div class="lh-100">
-                    <h6 class="mb-0 text-white lh-100">Hey there, <?php echo $_SESSION['username']; ?></h6>
-                    <small>Last logged in at <?php echo date("m-d-Y", strtotime($_SESSION['last_login_at'])); ?></small>
+                    ?>
+                </small>
+                <!-- <div class="text-center mb-3">
+                    <small class="text-success font-weight-bold">
+                        <?php
+                        if (isset($_SESSION['STATUS']['signupstatus']))
+                            echo $_SESSION['STATUS']['signupstatus'];
+
+                        ?>
+                    </small>
+                </div> -->
+
+                <div class="form-group">
+                    <label for="title" class="sr-only">Title</label>
+                    <input type="text" id="title" name="title" class="form-control" placeholder="title" required autofocus>
+                    <sub class="text-danger">
+                        <?php
+                        if (isset($_SESSION['ERRORS']['titleerror']))
+                            echo $_SESSION['ERRORS']['titleerror'];
+
+                        ?>
+                    </sub>
                 </div>
-            </div>
+
+                <div class="form-group">
+                    <label for="dexription" class="sr-only">Description</label>
+                    <textarea name="description" id="description" cols="30" rows="10" placeholder="Enter cause description here" class="form-control" required></textarea>
+                    <sub class="text-danger">
+                        <?php
+                        if (isset($_SESSION['ERRORS']['descriptionerror']))
+                            echo $_SESSION['ERRORS']['descriptionerror'];
+
+                        ?>
+                    </sub>
+                </div>
+                <button class="btn btn-primary btn-block" type="submit" name='cause_submit'>Create Cause</button>
+
+            </form>
+
 
             <div class="my-3 p-3 bg-white rounded box-shadow">
                 <h6 class="mb-0">Dummy Text</h6>
@@ -68,7 +106,6 @@ check_verified();
         </div>
     </div>
 </main>
-
 
 
 
