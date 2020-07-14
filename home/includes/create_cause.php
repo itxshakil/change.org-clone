@@ -81,14 +81,10 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             mysqli_stmt_execute($stmt);
             mysqli_stmt_store_result($stmt);
 
-            var_dump(mysqli_stmt_insert_id($stmt));
-            die();
-            exit();
-
-
+            $cause_id =  mysqli_stmt_insert_id($stmt);
 
             $_SESSION['STATUS']['causestatus'] = 'Cause Created Successfully , Please Share';
-            header("Location: ../../login/");
+            header("Location: ../../causes?id=" . $cause_id);
             exit();
         }
     }
