@@ -3,15 +3,14 @@
 define('TITLE', "Cause");
 include '../assets/layouts/header.php';
 check_verified();
-
+include 'includes/cause_function.php';
 ?>
 
 
 <main role="main" class="container">
 
     <div class="row">
-        <div class="col-sm-3">
-
+        <div class="col-sm-4">
             <div class="card m-1">
                 <div class="card-header">
                     <h3 class="text-center"> <?php echo $_SESSION['first_name'] . ' ' . $_SESSION['last_name']; ?></h3>
@@ -21,13 +20,13 @@ check_verified();
             </div>
 
         </div>
-        <div class="col-sm-9">
+        <div class="col-sm-8 ">
             <div class="card p-2">
-                <strong class="heading-3">Title</strong>
+                <strong class="heading-3"><?php echo $cause['title']; ?></strong>
                 <p class="text-muted">736 people sign it</p>
                 <div id="live" class="border rounded p-2"></div>
-                <div class="text-muted">By Shakil Alam</div>
-                <div class="text-black-50">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa sit ad, consequatur distinctio alias debitis obcaecati mollitia tenetur reprehenderit exercitationem.</div>
+                <div class="text-muted">By <?php echo $cause['first_name'] . " ".$cause['last_name'] ?></div>
+                <div class="text-black-50"><?php echo $cause['description']; ?></div>
                 <textarea class="form-control mt-2" name="comment" id="comment" rows="3" placeholder="Enter Your Message" required></textarea>
                 <button class="mt-2 btn btn-primary btn-block">Sign the cause</button>
             </div>
