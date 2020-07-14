@@ -10,7 +10,6 @@ check_logged_out();
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
-    // die(123);
     /*
     * -------------------------------------------------------------------------------
     *   Securing against Header Injection
@@ -38,8 +37,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $email = input_filter($_POST['email']);
     $password = input_filter($_POST['password']);
     $passwordRepeat  = input_filter($_POST['confirmpassword']);
-    // $headline = input_filter($_POST['headline']);
-    // $bio = input_filter($_POST['bio']);
     $full_name = input_filter($_POST['first_name']);
     $last_name = input_filter($_POST['last_name']);
 
@@ -56,88 +53,33 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         exit();
     } else if (!preg_match("/^[a-zA-Z0-9]*$/", $username)) {
 
-        $_SESSION['ERRORS']['usernameerror'] = 'invalid username';
+        $_SESSION['ERRORS']['usernameerror'] = 'Invalid username';
         header("Location: ../");
         exit();
     } else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 
-        $_SESSION['ERRORS']['emailerror'] = 'invalid email';
+        $_SESSION['ERRORS']['emailerror'] = 'Invalid email.';
         header("Location: ../");
         exit();
     } else if ($password !== $passwordRepeat) {
 
-        $_SESSION['ERRORS']['passworderror'] = 'passwords donot match';
+        $_SESSION['ERRORS']['passworderror'] = 'Password do not match.';
         header("Location: ../");
         exit();
     } else {
 
         if (!availableUsername($conn, $username)) {
 
-            $_SESSION['ERRORS']['usernameerror'] = 'username already taken';
+            $_SESSION['ERRORS']['usernameerror'] = 'Username already taken.';
             header("Location: ../");
             exit();
         }
         if (!availableEmail($conn, $email)) {
 
-            $_SESSION['ERRORS']['emailerror'] = 'email already taken';
+            $_SESSION['ERRORS']['emailerror'] = 'Email-address already registered.';
             header("Location: ../");
             exit();
         }
-
-        /*
-        * -------------------------------------------------------------------------------
-        *   Image Upload
-        * -------------------------------------------------------------------------------
-        */
-
-        // $FileNameNew = '_defaultUser.png';
-        // $file = $_FILES['avatar'];
-
-        // if (!empty($_FILES['avatar']['name'])){
-
-        //     $fileName = $_FILES['avatar']['name'];
-        //     $fileTmpName = $_FILES['avatar']['tmp_name'];
-        //     $fileSize = $_FILES['avatar']['size'];
-        //     $fileError = $_FILES['avatar']['error'];
-        //     $fileType = $_FILES['avatar']['type'];
-
-        //     $fileExt = explode('.', $fileName);
-        //     $fileActualExt = strtolower(end($fileExt));
-
-        //     $allowed = array('jpg', 'jpeg', 'png', 'gif');
-        //     if (in_array($fileActualExt, $allowed)){
-
-        //         if ($fileError === 0){
-
-        //             if ($fileSize < 10000000){
-
-        //                 $FileNameNew = uniqid('', true) . "." . $fileActualExt;
-        //                 $fileDestination = '../../assets/uploads/users/' . $FileNameNew;
-        //                 move_uploaded_file($fileTmpName, $fileDestination);
-
-        //             }
-        //             else {
-
-        //                 $_SESSION['ERRORS']['imageerror'] = 'image size should be less than 10MB';
-        //                 header("Location: ../");
-        //                 exit();
-        //             }
-        //         }
-        //         else {
-
-        //             $_SESSION['ERRORS']['imageerror'] = 'image upload failed, try again';
-        //             header("Location: ../");
-        //             exit();
-        //         }
-        //     }
-        //     else {
-
-        //         $_SESSION['ERRORS']['imageerror'] = 'invalid image type, try again';
-        //         header("Location: ../");
-        //         exit();
-        //     }
-        // }
-
 
         /*
         * -------------------------------------------------------------------------------
@@ -146,8 +88,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         */
 
 
-        $sql = "INSERT into users(username, email, password, first_name, last_name, created_at)
-                values ( ?,?,?,?,?,NOW() )";
+        $sql = "INSERT into users(username, email, password, first_name, last_name, created_at) values ( ?,?,?,?,?,NOW() )";
         $stmt = mysqli_stmt_init($conn);
         if (!mysqli_stmt_prepare($stmt, $sql)) {
 
@@ -155,22 +96,13 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             header("Location: ../");
             exit();
         } else {
+            $passsword = password_hash($password, PASSWORD_DEFAULT);
 
-            $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
-
-            mysqli_stmt_bind_param($stmt, "sssss", $username, $email, $hashedPwd, $full_name, $last_name);
+            mysqli_stmt_bind_param($stmt, "sssss", $username, $email, $passsword, $full_name, $last_name);
             mysqli_stmt_execute($stmt);
             mysqli_stmt_store_result($stmt);
 
-            /*
-            * -------------------------------------------------------------------------------
-            *   Sending Verification Email for Account Activation
-            * -------------------------------------------------------------------------------
-            */
-
-            // require 'sendverificationemail.inc.php';
-
-            $_SESSION['STATUS']['loginstatus'] = 'Account Created, please Login';
+            $_SESSION['STATUS']['loginstatus'] = 'Account Created, Please Login';
             header("Location: ../../login/");
             exit();
         }

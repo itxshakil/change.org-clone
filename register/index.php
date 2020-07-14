@@ -3,7 +3,6 @@
 define('TITLE', "Signup");
 include '../assets/layouts/header.php';
 check_logged_out();
-// print_r($_SESSION);
 
 ?>
 
@@ -167,24 +166,3 @@ check_logged_out();
 include '../assets/layouts/footer.php'
 
 ?>
-
-<!-- <script type="text/javascript">
-    function readURL(input) {
-
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-            reader.onload = function(e) {
-                $('#imagePreview').css('background-image', 'url(' + e.target.result + ')');
-                $('#imagePreview').hide();
-                $('#imagePreview').fadeIn(650);
-
-            }
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
-
-    $("#avatar").change(function() {
-        console.log("here");
-        readURL(this);
-    });
-</script> -->

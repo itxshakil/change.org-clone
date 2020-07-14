@@ -2,10 +2,9 @@
 
 define('TITLE', "Home");
 include '../assets/layouts/header.php';
-check_verified();
+check_logged_in();
 
 ?>
-
 
 <main role="main" class="container">
 
@@ -31,15 +30,7 @@ check_verified();
 
                     ?>
                 </small>
-                <!-- <div class="text-center mb-3">
-                    <small class="text-success font-weight-bold">
-                        <?php
-                        if (isset($_SESSION['STATUS']['signupstatus']))
-                            echo $_SESSION['STATUS']['signupstatus'];
 
-                        ?>
-                    </small>
-                </div> -->
 
                 <div class="form-group">
                     <label for="title" class="sr-only">Title</label>
@@ -64,7 +55,7 @@ check_verified();
                         ?>
                     </sub>
                 </div>
-                <button class="btn btn-primary btn-block" type="submit" name='cause_submit'>Create Cause</button>
+                <button class="btn btn-primary btn-block" type="submit">Create Cause</button>
 
             </form>
 

@@ -5,11 +5,10 @@ session_start();
 require '../../assets/includes/auth_functions.php';
 require '../../assets/includes/security_functions.php';
 
-check_verified();
+check_logged_in();
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
-    // die(123);
     /*
     * -------------------------------------------------------------------------------
     *   Securing against Header Injection

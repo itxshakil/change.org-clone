@@ -5,8 +5,6 @@ if (!defined('APP_ORGANIZATION'))               define('APP_ORGANIZATION', 'KLiK
 if (!defined('APP_OWNER'))                      define('APP_OWNER', 'msaad1999');
 if (!defined('APP_DESCRIPTION'))                define('APP_DESCRIPTION', 'Embeddable PHP Login System');
 
-if (!defined('ALLOWED_INACTIVITY_TIME'))        define('ALLOWED_INACTIVITY_TIME', time()+1*60);
-
 if (!defined('DB_DATABASE'))                    define('DB_DATABASE', 'project1');
 if (!defined('DB_HOST'))                        define('DB_HOST','127.0.0.1');
 if (!defined('DB_USERNAME'))                    define('DB_USERNAME','root');

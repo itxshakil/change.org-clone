@@ -67,8 +67,7 @@
                             <!-- <a class="dropdown-item text-muted" href="../profile"><i class="fa fa-user pr-2"></i>
                                     Profile</a>
                                 <a class="dropdown-item text-muted" href="../profile-edit"><i class="fa fa-pencil-alt pr-2"></i> Edit Profile</a> -->
-                            <a class="dropdown-item text-muted" href="../logout"><i class="fa fa-running pr-2"></i>
-                                Logout</a>
+                            <a class="dropdown-item text-muted" href="../logout"><i class="fa fa-running pr-2"></i>Logout</a>
                         </div>
                     </div>
 
