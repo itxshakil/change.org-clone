@@ -57,7 +57,11 @@
 <script src="../assets/js/jquery-3.4.1.min.js"></script>
 <script src="../assets/js/popper.min.js"></script>
 <script src="../assets/js/bootstrap.js"></script>
-
+<?php
+ if(file_exists('main.js')){
+     echo '<script src="main.js"></script>';
+ }
+?>
 <?php if (isset($_SESSION['auth'])) : ?>
 
     <script src="../assets/js/check_inactive.js"></script>
