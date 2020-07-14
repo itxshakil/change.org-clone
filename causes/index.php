@@ -34,7 +34,7 @@ check_verified();
 
             <div class="card my-3 p-3 bg-white box-shadow">
                 <h6 class="heading-4 font-weight-bold border-bottom pb-4">Latest Causes</h6>
-                <div id="results"></div>
+                <div id="latest"></div>
                 <small class="d-block text-right mt-3">
                     <a href="#">All updates</a>
                 </small>
