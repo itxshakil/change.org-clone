@@ -42,10 +42,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         } else {
             mysqli_stmt_bind_param($stmt, "iis", $cause_id, $user_id, $comment);
             mysqli_stmt_execute($stmt);
-            $response =mysqli_stmt_store_result($stmt);
+            $response = mysqli_stmt_store_result($stmt);
             echo json_encode(true);
         }
-
-
     }
 }

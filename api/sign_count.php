@@ -3,8 +3,6 @@ require '../assets/setup/db.inc.php';
 
 $cause_id = $_GET['id'];
 
-// header("Location: ../");
-
 $sql = "SELECT COUNT(id) FROM signs WHERE causes_id =?  ";
 $stmt = mysqli_stmt_init($conn);
 
@@ -19,5 +17,5 @@ if (!mysqli_stmt_prepare($stmt, $sql)) {
 
     $result = mysqli_stmt_get_result($stmt);
 
-    echo json_encode(mysqli_fetch_all($result,MYSQLI_ASSOC));
+    echo json_encode(mysqli_fetch_all($result, MYSQLI_ASSOC));
 }

@@ -35,7 +35,6 @@ $.ajax({
     url: '../api/latest_sign.php?id=' + cause_id
 }).done(function (response) {
     response = JSON.parse(response);
-    console.log(response);
     $.map(response, function (sign, i) {
         $('#latest_signs').append(`<div class="card my-3 p-3 bg-white box-shadow">
                     <strong>${sign.comment}</strong>

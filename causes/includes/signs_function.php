@@ -17,7 +17,7 @@ function isSignedCurrentUser($conn)
         exit();
     } else {
 
-        mysqli_stmt_bind_param($stmt, "ii", $id,$cause_id);
+        mysqli_stmt_bind_param($stmt, "ii", $id, $cause_id);
         mysqli_stmt_execute($stmt);
 
         $result = mysqli_stmt_get_result($stmt);
