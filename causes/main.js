@@ -13,3 +13,16 @@ $.ajax({
                 </div>`)
     })
 })
+$('#sign-form').submit(function (e) {
+    e.preventDefault();
+    let payload = {
+        cause_id: e.target[0].value,
+        comment: e.target[1].value,
+    };
+
+    $.post('../api/add_sign.php', payload, function (data, status) {
+        if (data) {
+            $('#sign-form').remove();
+        }
+    })
+})
