@@ -4,6 +4,8 @@ define('TITLE', "Cause");
 include '../assets/layouts/header.php';
 check_logged_in();
 include 'includes/cause_function.php';
+include 'includes/signs_function.php';
+include '../assets/setup/db.inc.php';
 ?>
 
 
@@ -28,11 +30,13 @@ include 'includes/cause_function.php';
                 <div class="text-muted px-4">By <?php echo $cause['first_name'] . " " . $cause['last_name'] ?></div>
                 <div class="px-4 mb-4"><?php echo $cause['description']; ?></div>
                 <hr>
-                <form action="" method="post" id="sign-form">
+                <?php if(!isSignedCurrentUser($conn)):?>
+                    <form action="" method="post" id="sign-form">
                     <input type="hidden" name="cause_id" value="<?php echo $cause['id']; ?>">
                     <textarea class="form-control mt-2" name="comment" id="comment" rows="3" placeholder="Enter Your Message" required></textarea>
                     <button class="mt-2 btn btn-primary btn-block">Sign the cause</button>
-                </form>
+                    </form>
+                <?php endif;?>
             </div>
 
             <div class="card my-3 p-3 bg-white box-shadow">
