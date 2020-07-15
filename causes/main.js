@@ -13,6 +13,8 @@ $.ajax({
                 </div>`)
     })
 })
+
+
 $('#sign-form').submit(function (e) {
     e.preventDefault();
     let payload = {
@@ -24,5 +26,20 @@ $('#sign-form').submit(function (e) {
         if (data) {
             $('#sign-form').remove();
         }
+    })
+})
+
+let cause_id = $('.cause-card').attr('id');
+
+$.ajax({
+    url: '../api/latest_sign.php'
+}).done(function (response) {
+    response = JSON.parse(response);
+    console.log(response);
+    $.map(response, function (sign, i) {
+        $('#latest_signs').append(`<div class="card my-3 p-3 bg-white box-shadow">
+                    <strong>${sign.comment}</strong>
+                    <span class="text-muted">By ${sign.first_name} ${sign.last_name}</span>
+                </div>`)
     })
 })
