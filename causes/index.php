@@ -25,7 +25,7 @@ include '../assets/setup/db.inc.php';
         <div class="col-sm-8 ">
             <div class="card p-2 m-1 cause-card" id="<?php echo $cause['id']; ?>">
                 <strong class="heading-3"><?php echo $cause['title']; ?></strong>
-                <p class="text-muted">736 people sign it</p>
+                <p class="text-muted"><span id="count"></span> people sign it</p>
                 <div id="live" class="border rounded p-2"></div>
                 <div class="text-muted px-4">By <?php echo $cause['first_name'] . " " . $cause['last_name'] ?></div>
                 <div class="px-4 mb-4"><?php echo $cause['description']; ?></div>

@@ -32,7 +32,7 @@ $('#sign-form').submit(function (e) {
 let cause_id = $('.cause-card').attr('id');
 
 $.ajax({
-    url: '../api/latest_sign.php'
+    url: '../api/latest_sign.php?id=' + cause_id
 }).done(function (response) {
     response = JSON.parse(response);
     console.log(response);
@@ -43,3 +43,12 @@ $.ajax({
                 </div>`)
     })
 })
+
+setTimeout(function () {
+    $.ajax({
+        url: '../api/sign_count.php?id=' + cause_id,
+    }).done(function (response) {
+        response = JSON.parse(response);
+        $('span#count').html(response[0]["COUNT(id)"])
+    })
+}, 3);
