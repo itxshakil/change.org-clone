@@ -21,14 +21,18 @@ include 'includes/cause_function.php';
 
         </div>
         <div class="col-sm-8 ">
-            <div class="card p-2">
+            <div class="card p-2 m-1 cause-card" id="<?php echo $cause['id']; ?>">
                 <strong class="heading-3"><?php echo $cause['title']; ?></strong>
                 <p class="text-muted">736 people sign it</p>
                 <div id="live" class="border rounded p-2"></div>
-                <div class="text-muted">By <?php echo $cause['first_name'] . " " . $cause['last_name'] ?></div>
-                <div class="text-black-50"><?php echo $cause['description']; ?></div>
-                <textarea class="form-control mt-2" name="comment" id="comment" rows="3" placeholder="Enter Your Message" required></textarea>
-                <button class="mt-2 btn btn-primary btn-block">Sign the cause</button>
+                <div class="text-muted px-4">By <?php echo $cause['first_name'] . " " . $cause['last_name'] ?></div>
+                <div class="px-4 mb-4"><?php echo $cause['description']; ?></div>
+                <hr>
+                <form action="" method="post" id="sign-form">
+                    <input type="hidden" name="cause_id" value="<?php echo $cause['id']; ?>">
+                    <textarea class="form-control mt-2" name="comment" id="comment" rows="3" placeholder="Enter Your Message" required></textarea>
+                    <button class="mt-2 btn btn-primary btn-block">Sign the cause</button>
+                </form>
             </div>
 
             <div class="card my-3 p-3 bg-white box-shadow">
