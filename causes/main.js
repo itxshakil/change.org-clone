@@ -31,23 +31,26 @@ $('#sign-form').submit(function (e) {
 
 let cause_id = $('.cause-card').attr('id');
 
-$.ajax({
-    url: '../api/latest_sign.php?id=' + cause_id
-}).done(function (response) {
-    response = JSON.parse(response);
-    $.map(response, function (sign, i) {
-        $('#latest_signs').append(`<div class="card my-3 p-3 bg-white box-shadow">
+setInterval(() => {
+    $.ajax({
+        url: '../api/latest_sign.php?id=' + cause_id
+    }).done(function (response) {
+        response = JSON.parse(response);
+        $('#latest_signs').html('');
+        $.map(response, function (sign, i) {
+            $('#latest_signs').append(`<div class="card my-3 p-3 bg-white box-shadow">
                     <strong>${sign.comment}</strong>
                     <span class="text-muted">By ${sign.first_name} ${sign.last_name}</span>
                 </div>`)
+        })
     })
-})
+}, 5000);
 
-setTimeout(function () {
+setInterval(() => {
     $.ajax({
         url: '../api/sign_count.php?id=' + cause_id,
     }).done(function (response) {
         response = JSON.parse(response);
         $('span#count').html(response[0]["COUNT(id)"])
     })
-}, 3);
+}, 3000);

@@ -5,9 +5,9 @@
             <div class="col-sm-4">
                 <h5>Get started</h5>
                 <ul>
-                    <li><a href="../welcome/" target="_blank">Welcome</a></li>
-                    <li><a href="../login/" target="_blank">Log in</a></li>
-                    <li><a href="../signup/" target="_blank">Sign up</a></li>
+                    <li><a href="../welcome/">Welcome</a></li>
+                    <li><a href="../login/">Log in</a></li>
+                    <li><a href="../register/">Sign up</a></li>
                 </ul>
             </div>
             <div class="col-sm-4">
