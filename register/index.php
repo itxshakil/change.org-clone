@@ -7,153 +7,93 @@ check_logged_out();
 ?>
 
 <div class="container">
-    <div class="row">
-        <div class="col-md-4">
+    <div class="container-fluid mt-4 border rounded">
+        <div class="row no-gutter">
+            <!-- The image half -->
+            <div class="col-md-6 d-none d-md-flex bg-image" style="background-image: url('https://res.cloudinary.com/mhmd/image/upload/v1555917661/art-colorful-contemporary-2047905_dxtao7.jpg');background-size: cover;background-position: center center;"></div>
 
-        </div>
-        <div class="col-lg-4 card m-1 p-2">
 
-            <form class="form-auth" action="includes/register.inc.php" method="post">
-                <small class="text-danger ml-2 font-weight-bold">
-                    <?php
-                    if (isset($_SESSION['ERRORS']['formerror']))
-                        echo $_SESSION['ERRORS']['formerror'];
+            <!-- The content half -->
+            <div class="col-md-6 bg-light">
+                <div class="login d-flex align-items-center py-5" style="min-height: 100vh;">
 
-                    ?>
-                </small>
+                    <!-- Demo content-->
+                    <div class="w-100">
+                        <div class="row">
+                            <div class="mx-auto p-2">
+                                <h3 class="display-4 mb-1">Welcome Back!</h3>
+                                <p class="text-muted mb-4">Create new Account.</p>
+                                <form class="form-auth" action="includes/register.inc.php" method="post">
+                                    <div class="text-center mb-3">
+                                        <small class="text-danger font-weight-bold">
+                                            <?php
+                                            if (isset($_SESSION['ERRORS']['imageerror']))
+                                                echo $_SESSION['ERRORS']['imageerror'];
 
-                <!-- <div class="picCard text-center">
-                    <div class="avatar-upload">
-                        <div class="avatar-preview text-center">
-                            <div id="imagePreview" style="background-image: url( ../assets/uploads/users/_defaultUser.png );"></div>
+                                            ?> </small>
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label for="username" class="sr-only">Username</label>
+                                        <input id="username" type="text" name="username" placeholder="Enter unique username" required="" autofocus="" class="form-control rounded-pill border-0 shadow-sm px-4">
+                                        <sub class="text-danger">
+                                            <?php
+                                            if (isset($_SESSION['ERRORS']['usernameerror']))
+                                                echo $_SESSION['ERRORS']['usernameerror'];
+
+                                            ?>
+                                        </sub>
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label for="first_name" class="sr-only">First Name</label>
+                                        <input type="text" id="first_name" name="first_name" class="form-control rounded-pill border-0 shadow-sm px-4 text-primary" placeholder="First Name">
+                                    </div>
+
+                                    <div class="form-group mb-3">
+                                        <label for="last_name" class="sr-only">Last Name</label>
+                                        <input type="text" id="last_name" name="last_name" class="form-control rounded-pill border-0 shadow-sm px-4 text-primary" placeholder="Last Name">
+                                    </div>
+
+                                    <div class="form-group mb-3">
+                                        <label for="email" class="sr-only">Email address</label>
+                                        <input type="email" id="email" name="email" class="form-control rounded-pill border-0 shadow-sm px-4 text-primary" placeholder="Enter your Email" required autofocus>
+                                        <sub class="text-danger">
+                                            <?php
+                                            if (isset($_SESSION['ERRORS']['emailerror']))
+                                                echo $_SESSION['ERRORS']['emailerror'];
+
+                                            ?>
+                                        </sub>
+                                    </div>
+
+                                    <div class="form-group mb-3">
+                                        <label for="password" class="sr-only">Password</label>
+                                        <input type="password" id="password" name="password" class="form-control rounded-pill border-0 shadow-sm px-4 text-primary" placeholder="Password" required>
+                                    </div>
+
+                                    <div class="form-group mb-3">
+                                        <label for="confirmpassword" class="sr-only">Confirm Password</label>
+                                        <input type="password" id="confirmpassword" name="confirmpassword" class="form-control rounded-pill border-0 shadow-sm px-4 text-primary" placeholder="Confirm Password" required>
+                                        <sub class="text-danger mb-4">
+                                            <?php
+                                            if (isset($_SESSION['ERRORS']['passworderror']))
+                                                echo $_SESSION['ERRORS']['passworderror'];
+
+                                            ?>
+                                        </sub>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm">Register account</button>
+                                    <hr>
+                                    <div class="text-center">
+                                        <a href="../reset-password" class="d-block">Forgot Password?</a>
+                                        <a href="../login" class="d-block">Log in to your account</a>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
-                        <div class="avatar-edit">
-                            <input name='avatar' id="avatar" class="fas fa-pencil" type='file' />
-                            <label for="avatar"></label>
-                        </div>
-                    </div>
-                </div> -->
-                <!-- <div class="text-center">
-                    <sub class="text-danger">
-                        <?php
-                        if (isset($_SESSION['ERRORS']['imageerror']))
-                            echo $_SESSION['ERRORS']['imageerror'];
+                    </div><!-- End -->
 
-                        ?>
-                    </sub>
-                </div> -->
-
-                <h6 class="h3 mt-3 mb-3 font-weight-normal text-center">Create new Account</h6>
-
-                <div class="text-center mb-3">
-                    <small class="text-success font-weight-bold">
-                        <?php
-                        if (isset($_SESSION['STATUS']['signupstatus']))
-                            echo $_SESSION['STATUS']['signupstatus'];
-
-                        ?>
-                    </small>
                 </div>
-
-                <div class="form-group">
-                    <label for="username" class="sr-only">Username</label>
-                    <input type="text" id="username" name="username" class="form-control" placeholder="Username" required autofocus>
-                    <sub class="text-danger">
-                        <?php
-                        if (isset($_SESSION['ERRORS']['usernameerror']))
-                            echo $_SESSION['ERRORS']['usernameerror'];
-
-                        ?>
-                    </sub>
-                </div>
-
-                <div class="form-group">
-                    <label for="first_name" class="sr-only">First Name</label>
-                    <input type="text" id="first_name" name="first_name" class="form-control" placeholder="First Name">
-                </div>
-
-                <div class="form-group">
-                    <label for="last_name" class="sr-only">Last Name</label>
-                    <input type="text" id="last_name" name="last_name" class="form-control" placeholder="Last Name">
-                </div>
-
-                <div class="form-group">
-                    <label for="email" class="sr-only">Email address</label>
-                    <input type="email" id="email" name="email" class="form-control" placeholder="Email address" required autofocus>
-                    <sub class="text-danger">
-                        <?php
-                        if (isset($_SESSION['ERRORS']['emailerror']))
-                            echo $_SESSION['ERRORS']['emailerror'];
-
-                        ?>
-                    </sub>
-                </div>
-
-                <div class="form-group">
-                    <label for="password" class="sr-only">Password</label>
-                    <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="confirmpassword" class="sr-only">Confirm Password</label>
-                    <input type="password" id="confirmpassword" name="confirmpassword" class="form-control" placeholder="Confirm Password" required>
-                    <sub class="text-danger mb-4">
-                        <?php
-                        if (isset($_SESSION['ERRORS']['passworderror']))
-                            echo $_SESSION['ERRORS']['passworderror'];
-
-                        ?>
-                    </sub>
-                </div>
-
-                <!-- <hr>
-                <span class="h5 mb-3 font-weight-normal text-muted text-center">Optional</span>
-                <br><br>
-
-                <div class="form-group">
-                    <label for="first_name" class="sr-only">First Name</label>
-                    <input type="text" id="first_name" name="first_name" class="form-control" placeholder="First Name">
-                </div>
-
-                <div class="form-group">
-                    <label for="last_name" class="sr-only">Last Name</label>
-                    <input type="text" id="last_name" name="last_name" class="form-control" placeholder="Last Name">
-                </div>
-
-                <div class="form-group mt-4">
-                    <label for="headline" class="sr-only">Headline</label>
-                    <input type="text" id="headline" name="headline" class="form-control" placeholder="headline">
-                </div>
-
-                <div class="form-group">
-                    <label for="bio" class="sr-only">Profile Details</label>
-                    <textarea type="text" id="bio" name="bio" class="form-control" placeholder="Tell us about yourself..."></textarea>
-                </div>
-
-                <div class="form-group">
-                    <label>Gender</label>
-
-                    <div class="custom-control custom-radio custom-control">
-                        <input type="radio" id="male" name="gender" class="custom-control-input" value="m">
-                        <label class="custom-control-label" for="male">Male</label>
-                    </div>
-                    <div class="custom-control custom-radio custom-control">
-                        <input type="radio" id="female" name="gender" class="custom-control-input" value="f">
-                        <label class="custom-control-label" for="female">Female</label>
-                    </div>
-                </div> -->
-
-                <button class="btn btn-primary btn-block" type="submit" name='signupsubmit'>Signup</button>
-
-            </form>
-            <hr>
-            <div class="text-center">
-                <a href="../reset-password" class="d-block">Forgot Password?</a>
-                <a href="../login" class="d-block">Log in to your account</a>
-            </div>
-
-        </div>
-        <div class="col-md-4">
+            </div><!-- End -->
 
         </div>
     </div>

@@ -13,8 +13,8 @@
             <div class="col-sm-4">
                 <h5>Features</h5>
                 <ul>
-                    <li><a href="../home/" target="_blank">Home</a></li>
-                    <li><a href="../dashboard/" target="_blank">Dashboard</a></li>
+                    <li><a href="../" >Aawaz</a></li>
+                    <li><a href="../home/" >Dashboard</a></li>
                 </ul>
             </div>
             <div class="col-sm-4">

@@ -10,7 +10,7 @@ include '../assets/layouts/header.php';
     <div class="jumbotron text-center">
         <h2 class="heading-2">The platform for change</h2>
         <p>877 people signs</p>
-        <a href="../home" class="btn text-danger border-danger">Start a cause </a>
+        <a href="../home" class="btn btn-danger">Start a cause </a>
     </div>
     <div class="card my-3 p-3 bg-white box-shadow container">
         <h6 class="heading-4 font-weight-bold border-bottom pb-4">Latest Causes</h6>

@@ -20,7 +20,6 @@ include '../assets/setup/db.inc.php';
                     <p class="text-center"> <?php echo $_SESSION['email']; ?></p>
                 </div>
             </div>
-
         </div>
         <div class="col-sm-8 ">
             <div class="card p-2 m-1 cause-card" id="<?php echo $cause['id']; ?>">

@@ -6,11 +6,9 @@ check_logged_in();
 
 ?>
 
-<main role="main" class="container">
-
+<main class="container">
     <div class="row">
-        <div class="col-sm-3">
-
+        <div class="col-sm-3 mt-2">
             <div class="card m-1">
                 <div class="card-header">
                     <h3 class="text-center"> <?php echo $_SESSION['first_name'] . ' ' . $_SESSION['last_name']; ?></h3>
@@ -18,23 +16,19 @@ check_logged_in();
                     <p class="text-center"> <?php echo $_SESSION['email']; ?></p>
                 </div>
             </div>
-
         </div>
         <div class="col-sm-9">
-            <form class="form-auth" action="includes/create_cause.php" method="post">
+            <form class="form-auth" action="includes/create_cause.php" method="POST">
                 <h6 class="h3 mt-3 mb-3 font-weight-normal text-center">Create new Cause!</h6>
                 <small class="text-danger ml-2 font-weight-bold">
                     <?php
                     if (isset($_SESSION['ERRORS']['formerror']))
                         echo $_SESSION['ERRORS']['formerror'];
-
                     ?>
                 </small>
-
-
-                <div class="form-group">
+                <div class="form-group mt-2">
                     <label for="title" class="sr-only">Title</label>
-                    <input type="text" id="title" name="title" class="form-control" placeholder="title" required autofocus>
+                    <input type="text" id="title" name="title" class="form-control" placeholder="Enter petition title" required autofocus>
                     <sub class="text-danger">
                         <?php
                         if (isset($_SESSION['ERRORS']['titleerror']))
@@ -46,7 +40,7 @@ check_logged_in();
 
                 <div class="form-group">
                     <label for="dexription" class="sr-only">Description</label>
-                    <textarea name="description" id="description" cols="30" rows="10" placeholder="Enter cause description here" class="form-control" required></textarea>
+                    <textarea name="description" id="description" cols="30" rows="10" placeholder="Enter petition description here..." class="form-control" required></textarea>
                     <sub class="text-danger">
                         <?php
                         if (isset($_SESSION['ERRORS']['descriptionerror']))
@@ -55,7 +49,7 @@ check_logged_in();
                         ?>
                     </sub>
                 </div>
-                <button class="btn btn-primary btn-block" type="submit">Create Cause</button>
+                <button class="btn btn-primary btn-block " type="submit">Create Cause</button>
 
             </form>
 
@@ -71,8 +65,6 @@ check_logged_in();
         </div>
     </div>
 </main>
-
-
 
 <?php
 

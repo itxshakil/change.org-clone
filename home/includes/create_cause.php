@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     * -------------------------------------------------------------------------------
     */
 
-    if (empty($title) || empty($description)) {
+    if (empty($title) && empty($description)) {
 
         $_SESSION['ERRORS']['formerror'] = 'Please fill all details and, try again';
         header("Location: ../");
