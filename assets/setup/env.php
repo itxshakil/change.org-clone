@@ -2,7 +2,7 @@
 
 if (!defined('APP_NAME'))                       define('APP_NAME', 'Aawaz');
 if (!defined('APP_ORGANIZATION'))               define('APP_ORGANIZATION', 'KLiK');
-if (!defined('APP_OWNER'))                      define('APP_OWNER', 'msaad1999');
+if (!defined('APP_OWNER'))                      define('APP_OWNER', 'itxshakil');
 if (!defined('APP_DESCRIPTION'))                define('APP_DESCRIPTION', 'Aawaz: Change.org Clone');
 
 if (!defined('DB_DATABASE'))                    define('DB_DATABASE', 'project1');
